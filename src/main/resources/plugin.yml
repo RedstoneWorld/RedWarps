@@ -1,0 +1,54 @@
+name: ${project.name}
+main: de.redstoneworld.redwarps.RedWarps
+version: '${minecraft.plugin.version}'
+api-version: '1.13'
+description: ${project.description}
+authors: [Phoenix616]
+website: https://redstoneworld.de
+commands:
+   warp:
+      aliases: [rwarp,w]
+      description: Teleport to warps.
+      usage: /<command> <name>
+      permission: rwm.redwarps.warp
+      permission-message: You don't have the permission <permission>
+   setwarp:
+      aliases: [rsetwarp]
+      description: Set warps.
+      usage: /<command> <name>
+      permission: rwm.redwarps.set
+      permission-message: You don't have the permission <permission>
+   delwarp:
+      aliases: [rdelwarp,removewarp]
+      description: Remove warps.
+      usage: /<command> <name>
+      permission: rwm.redwarps.remove
+      permission-message: You don't have the permission <permission>
+   updatewarp:
+      aliases: [rupdatewarp,editwarp]
+      description: Remove warps.
+      usage: /<command> <name> position|message|permission
+      permission: rwm.redwarps.update
+      permission-message: You don't have the permission <permission>
+   reloadwarps:
+      aliases: [rwarpreload]
+      description: Reload command
+      usage: /<command>
+      permission: rwm.redwarps.reload
+      permission-message: You don't have the permission <permission>
+permissions:
+   rwm.redwarps.warp:
+      description: Gives permission to teleport to warps
+      default: true
+   rwm.redwarps.set:
+      description: Gives permission to set warps
+      default: op
+   rwm.redwarps.remove:
+      description: Gives permission to remove warps
+      default: op
+   rwm.redwarps.command.reload:
+      description: Gives permission to reload the plugin
+      default: op
+   rwm.redwarps.reload:
+      description: Gives permission to reload the plugin
+      default: op
