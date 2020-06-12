@@ -118,6 +118,16 @@ public class RedWarps extends JavaPlugin {
     }
 
     /**
+     * Test whether or not a certain message exists
+     * @param sender    The sender to test the message for
+     * @param key       The message key
+     * @return Whether or not the message exists
+     */
+    public boolean hasMessage(CommandSender sender, String key) {
+        return lang.getConfig(sender).contains(key);
+    }
+
+    /**
      * Get the manager of the warps
      * @return The WarpManager
      */

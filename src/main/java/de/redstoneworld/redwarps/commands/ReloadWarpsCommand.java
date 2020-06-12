@@ -21,6 +21,9 @@ package de.redstoneworld.redwarps.commands;
 import de.redstoneworld.redwarps.RedWarps;
 import org.bukkit.command.CommandSender;
 
+import java.util.Collections;
+import java.util.List;
+
 public class ReloadWarpsCommand extends RedWarpCommand {
 
     public ReloadWarpsCommand(RedWarps plugin) {
@@ -37,5 +40,10 @@ public class ReloadWarpsCommand extends RedWarpCommand {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public List<String> complete(CommandSender sender, String[] args) {
+        return Collections.emptyList();
     }
 }

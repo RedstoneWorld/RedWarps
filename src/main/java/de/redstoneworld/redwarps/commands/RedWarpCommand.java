@@ -42,7 +42,11 @@ public abstract class RedWarpCommand implements TabExecutor {
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!execute(sender, args) && !isSilent(args)) {
-            plugin.sendMessage(sender, "usage." + getName(), "alias", label);
+            if (plugin.hasMessage(sender, "usage." + getName())) {
+                plugin.sendMessage(sender, "usage." + getName(), "alias", label);
+            } else {
+                return false;
+            }
         }
         return true;
     }

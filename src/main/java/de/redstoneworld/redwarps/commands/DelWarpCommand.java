@@ -25,7 +25,7 @@ import org.bukkit.command.CommandSender;
 public class DelWarpCommand extends RedWarpCommand {
 
     public DelWarpCommand(RedWarps plugin) {
-        super(plugin, "setwarp");
+        super(plugin, "delwarp");
     }
 
     public boolean execute(CommandSender sender, String[] args) {
@@ -35,7 +35,7 @@ public class DelWarpCommand extends RedWarpCommand {
 
         Warp warp = plugin.getWarpManager().getWarp(args[0]);
         if (warp == null || !warp.getName().equalsIgnoreCase(args[0])) {
-            plugin.sendMessage(sender, "warpNotFound", "warpname", args[0]);
+            plugin.sendMessage(sender, "warpNotFound", "input", args[0]);
             return true;
         }
 

@@ -1,10 +1,10 @@
-prefix: "&8\[&4Red&fWarps&8\]&f: "
+prefix: "&8\\[&4Red&fWarps&8\\]&f: "
 noPermission: "&cDu hast &4keine Berechtigung &cfür diesen Befehl."
 warpNoPermission: "&cDu hast &4keine Berechtigung &cfür diesen Warppunkt."
 worldNotLoaded: "&cDie Welt &4%world%&c für den Warp ist nicht geladen."
 usage:
   setwarp: "Schreibe: [&7/setwarp <Warp-Name> <ggf. ein oder mehrere Warppunkt-Aliasse>](suggest_command=/setwarp )"
-  updatewarp: "Schreibe: [&7/updatewarp <Warp-Name> message|permission|position \[<world> <x> <y> <z> \[<yaw> <pitch>\]\]](suggest_command=/updatewarp )"
+  updatewarp: "Schreibe: [&7/updatewarp <Warp-Name> message|permission|position \\[<world> <x> <y> <z> \\[<yaw> <pitch>\\]\\]](suggest_command=/updatewarp )"
   delwarp: "Schreibe: [&7/delwarp <Warp-Name>](suggest_command=/delwarp )"
   warp: "Schreibe: [&7/warp <Warp-Name>](suggest_command=/warp )"
 warpNotFound: "&cEs wurde &4kein Warp mit dem Namen &7%input% &cgefunden."

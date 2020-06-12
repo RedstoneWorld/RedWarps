@@ -43,7 +43,7 @@ public class UpdateWarpCommand extends RedWarpCommand {
 
         Warp warp = plugin.getWarpManager().getWarp(args[0]);
         if (warp == null || !warp.getName().equalsIgnoreCase(args[0])) {
-            plugin.sendMessage(sender, "warpNotFound", "warpname", args[0]);
+            plugin.sendMessage(sender, "warpNotFound", "input", args[0]);
             return true;
         }
 
@@ -86,7 +86,7 @@ public class UpdateWarpCommand extends RedWarpCommand {
 
         plugin.getWarpManager().saveWarp(warp);
 
-        plugin.sendMessage(sender, "setSuccess", "warpname", warp.getName());
+        plugin.sendMessage(sender, "updateSuccess", "warpname", warp.getName());
         return true;
     }
 
@@ -100,24 +100,27 @@ public class UpdateWarpCommand extends RedWarpCommand {
         List<String> list = new ArrayList<>();
         if ("position".equalsIgnoreCase(args[1])) {
             if (sender instanceof Player) {
-                if (args.length < 6) {
+                if (args.length < 7) {
                     Block target = ((Player) sender).getTargetBlock(6);
                     if (target != null) {
                         switch (args.length) {
                             case 3:
-                                list.add(String.valueOf(target.getX() + 0.5));
+                                list.add(target.getWorld().getName());
                                 break;
                             case 4:
-                                list.add(String.valueOf(target.getY() + 0.5));
+                                list.add(String.valueOf(target.getX() + 0.5));
                                 break;
                             case 5:
+                                list.add(String.valueOf(target.getY() + 1));
+                                break;
+                            case 6:
                                 list.add(String.valueOf(target.getZ() + 0.5));
                                 break;
                         }
                     }
-                } else if (args.length == 6) {
-                    list.add(String.valueOf(Math.round(((Player) sender).getEyeLocation().getYaw())));
                 } else if (args.length == 7) {
+                    list.add(String.valueOf(Math.round(((Player) sender).getEyeLocation().getYaw())));
+                } else if (args.length == 8) {
                     list.add(String.valueOf(Math.round(((Player) sender).getEyeLocation().getPitch())));
                 }
             } else if (args.length == 3) {
