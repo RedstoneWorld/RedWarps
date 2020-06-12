@@ -92,7 +92,7 @@ public class RedWarps extends JavaPlugin {
      * @param replacements  Array with alternating placeholders and replacements
      * @return The text or an error message if not found
      */
-    private String getText(CommandSender sender, String key, String... replacements) {
+    public String getText(CommandSender sender, String key, String... replacements) {
         return TextComponent.toLegacyText(getMessage(sender, key, replacements));
     }
 
@@ -103,7 +103,7 @@ public class RedWarps extends JavaPlugin {
      * @param replacements  Array with alternating placeholders and replacements
      * @return The text components or an error message if not found
      */
-    private BaseComponent[] getMessage(CommandSender sender, String key, String... replacements) {
+    public BaseComponent[] getMessage(CommandSender sender, String key, String... replacements) {
         return MineDown.parse(lang.getConfig(sender).get("prefix") + lang.getConfig(sender).get(key, replacements));
     }
 

@@ -71,7 +71,7 @@ public class WarpCommand extends RedWarpCommand {
                 ((Player) sender).sendBlockChange(belowLocation, belowLocation.getBlock().getBlockData());
                 ((Player) sender).teleport(warpLocation);
                 if (!silent && warp.getMessage() != null && !warp.getMessage().isEmpty()) {
-                    sender.sendMessage(MineDown.parse(warp.getMessage(), "warpname", warp.getName()));
+                    sender.sendMessage(MineDown.parse(warp.getMessage(), "warpname", warp.getName(), "prefix", plugin.getText(sender, "prefix")));
                 } else {
                     sendMessage(sender, silent, "defaultWarpMessage", "warpname", warp.getName());
                 }

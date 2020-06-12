@@ -66,7 +66,7 @@ public class Warp {
                 yaw,
                 pitch,
                 "rwm.redwarps.warp." + name,
-                null,
+                "",
                 Collections.emptyList()
         );
     }
@@ -94,7 +94,7 @@ public class Warp {
                 (float) config.getDouble("yaw", 0),
                 (float) config.getDouble("pitch", 0),
                 config.getString("permission", null),
-                config.getString("message", null),
+                config.getString("message", ""),
                 config.getStringList("commands")
         );
     }
