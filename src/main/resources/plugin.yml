@@ -5,6 +5,7 @@ api-version: '1.13'
 description: ${project.description}
 authors: [Phoenix616]
 website: https://redstoneworld.de
+softdepend: [Multiverse-Core]
 commands:
    warp:
       aliases: [rwarp,w]
