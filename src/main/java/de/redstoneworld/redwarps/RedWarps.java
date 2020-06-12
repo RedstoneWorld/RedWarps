@@ -78,7 +78,7 @@ public class RedWarps extends JavaPlugin {
         lang = new LanguageManager(this, "languages", "", getConfig().getString("default-language"));
 
         for (PluginCommand command : commands) {
-            command.setPermissionMessage(getText(getServer().getConsoleSender(), "noPermission", "permission", "<permission>"));
+            command.setPermissionMessage(getText(getServer().getConsoleSender(), "prefix") + getText(getServer().getConsoleSender(), "noPermission", "permission", "<permission>"));
         }
 
         totalSuccess |= warpManager.load();
@@ -93,7 +93,7 @@ public class RedWarps extends JavaPlugin {
      * @return The text or an error message if not found
      */
     public String getText(CommandSender sender, String key, String... replacements) {
-        return TextComponent.toLegacyText(getMessage(sender, key, replacements));
+        return TextComponent.toLegacyText(MineDown.parse(lang.getConfig(sender).get(key, replacements)));
     }
 
     /**
