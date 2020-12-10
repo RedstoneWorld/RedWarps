@@ -64,9 +64,4 @@ public class SetWarpCommand extends RedWarpCommand {
         plugin.sendMessage(sender, "setSuccess", "warpname", warp.getName());
         return true;
     }
-
-    @Override
-    public List<String> complete(CommandSender sender, String[] args) {
-        return Collections.emptyList();
-    }
 }

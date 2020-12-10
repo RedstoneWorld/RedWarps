@@ -37,11 +37,12 @@ public class Warp {
     private double z;
     private float yaw;
     private float pitch;
+    private boolean hidden;
     private String permission;
     private String message;
     private List<String> commands;
 
-    public Warp(String name, List<String> aliases, String worldName, double x, double y, double z, float yaw, float pitch, String permission, String message, List<String> commands) {
+    public Warp(String name, List<String> aliases, String worldName, double x, double y, double z, float yaw, float pitch, boolean hidden, String permission, String message, List<String> commands) {
         this.name = name;
         this.aliases = new ArrayList<>(aliases);
         this.worldName = worldName;
@@ -50,6 +51,7 @@ public class Warp {
         this.z = z;
         this.yaw = yaw;
         this.pitch = pitch;
+        this.hidden = hidden;
         this.permission = permission;
         this.message = message;
         this.commands = new ArrayList<>(commands);
@@ -65,6 +67,7 @@ public class Warp {
                 location.getZ(),
                 yaw,
                 pitch,
+                false,
                 "rwm.redwarps.warp." + name,
                 "",
                 Collections.emptyList()
@@ -93,6 +96,7 @@ public class Warp {
                 config.getDouble("z"),
                 (float) config.getDouble("yaw", 0),
                 (float) config.getDouble("pitch", 0),
+                config.getBoolean("hidden", false),
                 config.getString("permission", null),
                 config.getString("message", ""),
                 config.getStringList("commands")
@@ -157,6 +161,14 @@ public class Warp {
 
     public void setPitch(float pitch) {
         this.pitch = pitch;
+    }
+
+    public boolean isHidden() {
+        return hidden;
+    }
+
+    public void setHidden(boolean hidden) {
+        this.hidden = hidden;
     }
 
     public String getPermission() {

@@ -22,6 +22,9 @@ import de.redstoneworld.redwarps.RedWarps;
 import de.redstoneworld.redwarps.Warp;
 import org.bukkit.command.CommandSender;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DelWarpCommand extends RedWarpCommand {
 
     public DelWarpCommand(RedWarps plugin) {
@@ -43,5 +46,16 @@ public class DelWarpCommand extends RedWarpCommand {
 
         plugin.sendMessage(sender, "delSuccess", "warpname", warp.getName());
         return true;
+    }
+
+    @Override
+    public List<String> complete(CommandSender sender, String[] args) {
+        List<String> list = new ArrayList<>();
+        if (args.length < 2) {
+            for (Warp warp : plugin.getWarpManager().getWarps()) {
+                list.add(warp.getName());
+            }
+        }
+        return list;
     }
 }

@@ -111,6 +111,7 @@ public class WarpManager {
         section.set("z", warp.getZ());
         section.set("yaw", warp.getYaw());
         section.set("pitch", warp.getPitch());
+        section.set("hidden", warp.isHidden());
         section.set("permission", warp.getPermission());
         section.set("message", warp.getMessage());
         section.set("commands", warp.getCommands());

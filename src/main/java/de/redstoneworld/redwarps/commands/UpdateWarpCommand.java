@@ -27,7 +27,6 @@ import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class UpdateWarpCommand extends RedWarpCommand {
@@ -77,6 +76,12 @@ public class UpdateWarpCommand extends RedWarpCommand {
             } else {
                 warp.setMessage(null);
             }
+        } else if ("hidden".equalsIgnoreCase(args[1])) {
+            if (args.length > 2) {
+                warp.setHidden(args[2].equalsIgnoreCase("true"));
+            } else {
+                warp.setHidden(!warp.isHidden());
+            }
         } else if ("permission".equalsIgnoreCase(args[1])) {
             if (args.length < 3) {
                 return false;
@@ -93,9 +98,13 @@ public class UpdateWarpCommand extends RedWarpCommand {
     @Override
     public List<String> complete(CommandSender sender, String[] args) {
         if (args.length < 2) {
-            return super.complete(sender, args);
+            List<String> list = new ArrayList<>();
+            for (Warp warp : plugin.getWarpManager().getWarps()) {
+                list.add(warp.getName());
+            }
+            return list;
         } else if (args.length == 2) {
-            return Arrays.asList("position", "message", "permission");
+            return Arrays.asList("position", "message", "hidden", "permission");
         }
         List<String> list = new ArrayList<>();
         if ("position".equalsIgnoreCase(args[1])) {
@@ -128,6 +137,9 @@ public class UpdateWarpCommand extends RedWarpCommand {
                     list.add(world.getName());
                 }
             }
+        } else if ("hidden".equalsIgnoreCase(args[1])) {
+            list.add("true");
+            list.add("false");
         } else if ("permission".equalsIgnoreCase(args[1])) {
             list.add("rwm.redwarps.warp.");
             Warp warp = plugin.getWarpManager().getWarp(args[0]);

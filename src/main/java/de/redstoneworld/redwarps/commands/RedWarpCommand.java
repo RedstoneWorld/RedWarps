@@ -25,6 +25,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public abstract class RedWarpCommand implements TabExecutor {
@@ -69,13 +70,7 @@ public abstract class RedWarpCommand implements TabExecutor {
      * @return The list of completions
      */
     public List<String> complete(CommandSender sender, String[] args) {
-        List<String> list = new ArrayList<>();
-        if (args.length < 2) {
-            for (Warp warp : plugin.getWarpManager().getWarps()) {
-                list.add(warp.getName());
-            }
-        }
-        return list;
+        return Collections.emptyList();
     }
 
     private boolean isSilent(String[] args) {

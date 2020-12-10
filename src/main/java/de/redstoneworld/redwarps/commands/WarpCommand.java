@@ -26,6 +26,8 @@ import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 
 public class WarpCommand extends RedWarpCommand {
@@ -82,5 +84,18 @@ public class WarpCommand extends RedWarpCommand {
         });
 
         return true;
+    }
+
+    @Override
+    public List<String> complete(CommandSender sender, String[] args) {
+        List<String> list = new ArrayList<>();
+        if (args.length < 2) {
+            for (Warp warp : plugin.getWarpManager().getWarps()) {
+                if (!warp.isHidden() && (warp.getPermission() == null || sender.hasPermission(warp.getPermission()))) {
+                    list.add(warp.getName());
+                }
+            }
+        }
+        return list;
     }
 }
